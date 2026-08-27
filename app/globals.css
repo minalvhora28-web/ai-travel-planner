@@ -1,26 +1,517 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  box-sizing: border-box;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+/* ========================= */
+/* MAIN PAGE */
+/* ========================= */
+
+.planner-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 60px 20px 80px;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.planner-hero {
+  max-width: 750px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.hero-icon {
+  font-size: 52px;
+  margin-bottom: 12px;
+}
+
+.planner-hero h1 {
+  margin: 0;
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.planner-hero p {
+  max-width: 600px;
+  margin: 16px auto 0;
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* ========================= */
+/* PLANNER CARD */
+/* ========================= */
+
+.planner-card {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================= */
+/* SECTION HEADING */
+/* ========================= */
+
+.section-heading {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 27px;
+}
+
+.section-heading p {
+  margin: 10px 0 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* ========================= */
+/* FORM */
+/* ========================= */
+
+.form-group {
+  margin-bottom: 27px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  border: 1px solid #d8dee8;
+  border-radius: 11px;
+  outline: none;
+  background: #fafbfc;
+  color: #1f2937;
+  font-size: 15px;
+}
+
+.form-group input:focus {
+  border-color: #64748b;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
+}
+
+/* Remove number arrows */
+
+.form-group input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.form-group input[type="number"]::-webkit-inner-spin-button,
+.form-group input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+/* ========================= */
+/* INTERESTS */
+/* ========================= */
+
+.interests-section {
+  margin-top: 38px;
+  padding-top: 32px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.interest-heading {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.interest-heading h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.interest-heading p {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.interest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.interest-option {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 50px;
+  padding: 0 15px;
+  border: 1px solid #e1e5eb;
+  border-radius: 11px;
+  background: #fafbfc;
+  cursor: pointer;
+}
+
+.interest-option:hover {
+  background: #f3f5f8;
+  border-color: #cbd5e1;
+}
+
+.interest-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0 12px 0 0;
+  cursor: pointer;
+}
+
+.interest-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.interest-emoji {
+  font-size: 20px;
+}
+
+/* ========================= */
+/* GENERATE BUTTON */
+/* ========================= */
+
+.generate-button {
+  width: 100%;
+  height: 54px;
+  margin-top: 35px;
+  border: 0;
+  border-radius: 12px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background: #1f2937;
+}
+
+.generate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ========================= */
+/* TRIP RESULT */
+/* ========================= */
+
+.trip-result {
+  width: 100%;
+  max-width: 900px;
+  margin: 45px auto 0;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Result heading */
+
+.result-heading {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.result-icon {
+  margin-bottom: 10px;
+  font-size: 45px;
+}
+
+.result-heading h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.result-heading p {
+  margin: 10px 0 0;
+  color: #6b7280;
+}
+
+/* ========================= */
+/* SUMMARY */
+/* ========================= */
+
+.trip-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 35px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.summary-icon {
+  font-size: 25px;
+}
+
+.summary-item small {
+  display: block;
+  margin-bottom: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.summary-item strong {
+  display: block;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* DAY CARDS */
+/* ========================= */
+
+.day-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.day-card {
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Day header */
+
+.day-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 22px 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.day-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #111827;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.day-label {
+  display: block;
+  margin-bottom: 4px;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.day-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* Activities */
+
+.activity {
+  display: flex;
+  gap: 15px;
+  padding: 22px 24px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.activity-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #f1f5f9;
+  font-size: 20px;
+}
+
+.activity h4 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.activity p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Daily budget */
+
+.day-budget {
+  padding: 17px 24px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.day-budget strong {
+  margin-left: 5px;
+  color: #1f2937;
+}
+
+/* ========================= */
+/* TRAVEL TIPS */
+/* ========================= */
+
+.travel-tips {
+  margin-top: 30px;
+  padding: 25px;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  background: #f8fafc;
+}
+
+.tips-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tips-heading span {
+  font-size: 25px;
+}
+
+.tips-heading h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.tips-list {
+  margin-top: 18px;
+}
+
+.tips-list p {
+  margin: 10px 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 700px) {
+  .planner-page {
+    padding: 35px 15px 60px;
+  }
+
+  .planner-hero h1 {
+    font-size: 34px;
+  }
+
+  .planner-hero p {
+    font-size: 16px;
+  }
+
+  .planner-card {
+    padding: 25px 20px;
+    border-radius: 18px;
+  }
+
+  .trip-result {
+    padding: 25px 20px;
+    border-radius: 18px;
+  }
+
+  .trip-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .day-header {
+    padding: 20px;
+  }
+
+  .activity {
+    padding: 20px;
+  }
+
+  .day-budget {
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .planner-hero h1 {
+    font-size: 30px;
+  }
+
+  .trip-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-item {
+    padding: 14px;
+  }
+
+  .day-header h3 {
+    font-size: 17px;
+  }
+
+  .activity {
+    gap: 10px;
+  }
+
+  .activity-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 17px;
+  }
 }
