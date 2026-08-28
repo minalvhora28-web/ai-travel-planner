@@ -55,7 +55,6 @@ const searchText = `${cleanedDestination}`;
     limit: "10",
     bias: "countrycode:none",
   apiKey: process.env.GEOAPIFY_API_KEY!,
-    apiKey,
   });
 
   const url =
