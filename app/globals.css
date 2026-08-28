@@ -514,63 +514,132 @@ body {
     height: 35px;
     font-size: 17px;
   }
+/* ================================================= */
+/* FINAL MOBILE ITINERARY FIX */
+/* ================================================= */
 
-  /* FINAL MOBILE FIX */
 @media (max-width: 700px) {
 
+  /* Prevent horizontal overflow */
   html,
   body {
-    overflow-x: hidden !important;
-    width: 100% !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
+  * {
+    max-width: 100%;
+  }
+
+  /* Main result */
   .trip-result {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px 14px;
+    overflow: hidden;
+  }
+
+  /* ================================================= */
+  /* ESTIMATED COST / BUDGET */
+  /* ================================================= */
+
+  .trip-result .cost-grid,
+  .trip-result .estimate-cost,
+  .trip-result .cost-section,
+  .trip-result .budget-breakdown,
+  .trip-result [class*="cost-grid"],
+  .trip-result [class*="budget-breakdown"],
+  .trip-result [class*="estimate-cost"] {
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden !important;
-    padding: 20px 12px !important;
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
   }
+
+  .trip-result .cost-item,
+  .trip-result .cost-card,
+  .trip-result [class*="cost-item"],
+  .trip-result [class*="cost-card"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ================================================= */
+  /* DAY CARD */
+  /* ================================================= */
 
   .day-card {
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 
+  /* ================================================= */
   /* DAY HEADER */
+  /* ================================================= */
+
   .day-header {
     width: 100% !important;
-    padding: 18px 14px !important;
-    box-sizing: border-box !important;
+    max-width: 100% !important;
     min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 18px 16px !important;
+    gap: 12px !important;
   }
 
   .day-header h3 {
     min-width: 0 !important;
-    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
   }
 
+  /* ================================================= */
   /* MORNING / AFTERNOON / EVENING */
+  /* ================================================= */
+
   .activity-grid,
-  .activities,
   .activities-grid,
-  .day-activities {
-    display: flex !important;
-    flex-direction: column !important;
+  .day-activities,
+  .activities,
+  [class*="activity-grid"],
+  [class*="activities-grid"],
+  [class*="day-activities"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+
+    gap: 0 !important;
+
+    box-sizing: border-box !important;
     overflow: hidden !important;
   }
 
+  /* Individual activity */
   .activity,
-  .activity-item {
+  .activity-item,
+  [class*="activity-item"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+
+    display: flex !important;
     box-sizing: border-box !important;
-    padding: 16px 14px !important;
-    overflow: hidden !important;
+
+    padding: 16px !important;
+
+    overflow-wrap: anywhere !important;
+    word-wrap: break-word !important;
   }
 
   .activity h4,
@@ -579,60 +648,97 @@ body {
   .activity-item p {
     min-width: 0 !important;
     max-width: 100% !important;
-    overflow-wrap: break-word !important;
+
+    overflow-wrap: anywhere !important;
+    word-break: normal !important;
   }
 
-  /* ESTIMATED COST */
-  .cost-grid,
-  .estimate-cost,
-  .cost-section,
-  .budget-breakdown {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    gap: 12px !important;
-    box-sizing: border-box !important;
-  }
+  /* ================================================= */
+  /* FOOD / MEALS */
+  /* ================================================= */
 
-  .cost-item,
-  .cost-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* FOOD */
   .food-grid,
-  .meal-grid {
+  .meal-grid,
+  [class*="food-grid"],
+  [class*="meal-grid"] {
+    width: 100% !important;
+    max-width: 100% !important;
+
     display: grid !important;
     grid-template-columns: 1fr !important;
-    width: 100% !important;
-    max-width: 100% !important;
+
     gap: 12px !important;
+    box-sizing: border-box !important;
   }
 
   .food-card,
-  .meal-card {
+  .meal-card,
+  [class*="food-card"],
+  [class*="meal-card"] {
     width: 100% !important;
+    max-width: 100% !important;
     min-width: 0 !important;
+
     box-sizing: border-box !important;
   }
-}
 
-@media (max-width: 450px) {
+  /* ================================================= */
+  /* ALL TEXT INSIDE RESULT */
+  /* ================================================= */
 
-  .trip-result {
-    padding: 18px 10px !important;
+  .trip-result h1,
+  .trip-result h2,
+  .trip-result h3,
+  .trip-result h4,
+  .trip-result p,
+  .trip-result strong,
+  .trip-result span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
-  .day-header {
-    padding: 16px 12px !important;
-  }
+  /* ================================================= */
+  /* SMALL PHONE */
+  /* ================================================= */
 
-  .activity,
-  .activity-item {
-    padding: 14px 12px !important;
+  @media (max-width: 450px) {
+
+    .trip-result {
+      padding: 18px 12px !important;
+    }
+
+    .day-header {
+      padding: 16px 12px !important;
+    }
+
+    .day-number {
+      width: 42px !important;
+      height: 42px !important;
+      flex-shrink: 0 !important;
+      font-size: 17px !important;
+    }
+
+    .day-header h3 {
+      font-size: 18px !important;
+      line-height: 1.2 !important;
+    }
+
+    .activity,
+    .activity-item {
+      padding: 14px 12px !important;
+    }
+
+    .activity-icon {
+      width: 35px !important;
+      height: 35px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .food-grid,
+    .meal-grid,
+    .activity-grid,
+    .activities-grid {
+      grid-template-columns: 1fr !important;
+    }
   }
 }
