@@ -53,9 +53,8 @@ const searchText = `${cleanedDestination}`;
     text: searchText,
     format: "json",
     limit: "10",
-    lang: "en",
-    countrycode: "en",
-    type: "city",
+    bias: "countrycode:none",
+  apiKey: process.env.GEOAPIFY_API_KEY!,
     apiKey,
   });
 
