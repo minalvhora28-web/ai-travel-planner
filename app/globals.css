@@ -514,4 +514,120 @@ body {
     height: 35px;
     font-size: 17px;
   }
+
+  /* ========================= */
+/* MOBILE ITINERARY FIX ONLY */
+/* ========================= */
+
+@media (max-width: 700px) {
+
+  /* Prevent anything from escaping the phone screen */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Keep result/card contents inside their boxes */
+  .trip-result,
+  .day-card {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* ========================= */
+  /* ESTIMATED COST / COST BOXES */
+  /* ========================= */
+
+  .cost-grid,
+  .estimate-cost,
+  .cost-section,
+  .budget-breakdown {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* If cost items are side-by-side, stack them */
+  .cost-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .cost-item,
+  .cost-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* ========================= */
+  /* MORNING / AFTERNOON / EVENING */
+  /* ========================= */
+
+  .activities,
+  .activity-grid,
+  .day-activities {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .activity-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .activity,
+  .activity-item {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+  }
+
+  /* Stop long text from pushing the card wider */
+  .activity h4,
+  .activity p,
+  .activity-item h4,
+  .activity-item p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  /* ========================= */
+  /* DAY HEADER */
+  /* ========================= */
+
+  .day-header {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .day-header h3 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* ========================= */
+  /* FOOD SECTION */
+  /* ========================= */
+
+  .food-grid,
+  .meal-grid {
+    grid-template-columns: 1fr !important;
+    width: 100%;
+    gap: 12px !important;
+  }
+
+  .food-card,
+  .meal-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+}
 }
